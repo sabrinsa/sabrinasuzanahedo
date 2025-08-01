@@ -5,8 +5,8 @@ export default function MetricsHighlight() {
       description: "Premium Recovery Led"
     },
     {
-      value: "40%",
-      description: "Lead Conversion Increase"
+      value: "1st Place",
+      description: "Case Competition Winner"
     },
     {
       value: "$50K+ MXN",
@@ -19,9 +19,9 @@ export default function MetricsHighlight() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8">
           {metrics.map((metric, index) => (
-            <div key={index} className="text-center bg-beige-50 p-6 rounded-xl border border-beige-200">
-              <div className="text-3xl font-bold text-navy-800 mb-2">{metric.value}</div>
-              <div className="text-sm text-gray-600">{metric.description}</div>
+            <div key={index} className="text-center bg-neutral-50 p-6 rounded-xl border border-neutral-200">
+              <div className="text-3xl font-bold text-royal-blue mb-2">{metric.value}</div>
+              <div className="text-sm text-neutral-600">{metric.description}</div>
             </div>
           ))}
         </div>

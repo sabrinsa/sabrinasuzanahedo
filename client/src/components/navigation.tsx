@@ -1,10 +1,18 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const openChatbot = () => {
+    // Trigger chatbot widget opening
+    const chatbotButton = document.querySelector('#chatbot-widget button');
+    if (chatbotButton) {
+      (chatbotButton as HTMLElement).click();
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,6 +73,13 @@ export default function Navigation() {
             >
               Contact
             </button>
+            <button 
+              onClick={openChatbot}
+              className="flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+            >
+              <MessageCircle className="h-4 w-4 mr-2" />
+              CV Chatbot
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -111,6 +126,13 @@ export default function Navigation() {
                 className="block w-full text-left px-4 py-2 text-gray-600 hover:text-navy-800 hover:bg-beige-50"
               >
                 Contact
+              </button>
+              <button 
+                onClick={openChatbot}
+                className="block w-full text-left px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg mt-2 flex items-center"
+              >
+                <MessageCircle className="h-4 w-4 mr-2" />
+                CV Chatbot
               </button>
             </div>
           </div>

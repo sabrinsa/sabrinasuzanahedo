@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
+import sabrinaProfessionalPhoto from "@assets/Sabrina CV Beige_1754022651062.png";
 
 export default function HeroSection() {
   const scrollToSection = (sectionId: string) => {
@@ -27,7 +28,7 @@ export default function HeroSection() {
             <div className="flex flex-wrap gap-4">
               <Button 
                 onClick={() => scrollToSection("contact")}
-                className="bg-gold hover:bg-yellow-500 text-navy-800 px-6 py-3 font-semibold"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 font-semibold"
               >
                 Get In Touch
               </Button>
@@ -43,16 +44,14 @@ export default function HeroSection() {
           <div className="flex justify-center order-1 lg:order-2">
             <div className="relative">
               <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-beige-100 shadow-2xl">
-                {/* Professional photo placeholder - replace with actual image */}
-                <div className="w-full h-full bg-beige-100 flex items-center justify-center">
-                  <div className="text-center text-navy-800">
-                    <div className="text-6xl mb-4">👩‍💼</div>
-                    <p className="text-sm">Professional Photo</p>
-                  </div>
-                </div>
+                <img 
+                  src={sabrinaProfessionalPhoto} 
+                  alt="Sabrina Suzán Ahedo - Professional Photo" 
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-gold rounded-full p-3 shadow-lg">
-                <Star className="text-navy-800 h-6 w-6" />
+              <div className="absolute -bottom-4 -right-4 bg-royal-blue rounded-full p-3 shadow-lg">
+                <Star className="text-white h-6 w-6" />
               </div>
             </div>
           </div>

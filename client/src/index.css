@@ -13,7 +13,7 @@
   --card-foreground: hsl(210, 40%, 20%);
   --border: hsl(45, 15%, 90%);
   --input: hsl(45, 15%, 90%);
-  --primary: hsl(210, 80%, 35%);
+  --primary: hsl(224, 76%, 48%);
   --primary-foreground: hsl(0, 0%, 98%);
   --secondary: hsl(45, 20%, 95%);
   --secondary-foreground: hsl(210, 40%, 15%);
@@ -26,11 +26,19 @@
   --navy-800: hsl(210, 80%, 25%);
   --navy-700: hsl(210, 75%, 35%);
   --navy-600: hsl(210, 70%, 45%);
+  --royal-blue: hsl(224, 76%, 48%);
+  --royal-blue-dark: hsl(224, 76%, 40%);
   --beige-50: hsl(45, 25%, 97%);
   --beige-100: hsl(45, 20%, 90%);
   --beige-200: hsl(45, 18%, 83%);
   --beige-300: hsl(45, 15%, 75%);
-  --gold: hsl(51, 75%, 52%);
+  --neutral-50: hsl(0, 0%, 98%);
+  --neutral-100: hsl(0, 0%, 96%);
+  --neutral-200: hsl(0, 0%, 90%);
+  --neutral-300: hsl(0, 0%, 83%);
+  --neutral-600: hsl(0, 0%, 45%);
+  --neutral-700: hsl(0, 0%, 38%);
+  --neutral-800: hsl(0, 0%, 23%);
 }
 
 .dark {
@@ -119,23 +127,51 @@
     color: hsl(45, 18%, 83%);
   }
   
-  .bg-gold {
-    background-color: hsl(51, 75%, 52%);
+  .bg-royal-blue {
+    background-color: hsl(224, 76%, 48%);
   }
   
-  .text-gold {
-    color: hsl(51, 75%, 52%);
+  .text-royal-blue {
+    color: hsl(224, 76%, 48%);
+  }
+  
+  .bg-royal-blue-dark {
+    background-color: hsl(224, 76%, 40%);
   }
   
   .border-beige-200 {
     border-color: hsl(45, 18%, 83%);
   }
   
-  .hover\:bg-gold:hover {
-    background-color: hsl(51, 75%, 52%);
+  .border-neutral-200 {
+    border-color: hsl(0, 0%, 90%);
   }
   
-  .hover\:text-gold:hover {
-    color: hsl(51, 75%, 52%);
+  .bg-neutral-50 {
+    background-color: hsl(0, 0%, 98%);
+  }
+  
+  .bg-neutral-100 {
+    background-color: hsl(0, 0%, 96%);
+  }
+  
+  .text-neutral-600 {
+    color: hsl(0, 0%, 45%);
+  }
+  
+  .text-neutral-700 {
+    color: hsl(0, 0%, 38%);
+  }
+  
+  .text-neutral-800 {
+    color: hsl(0, 0%, 23%);
+  }
+  
+  .hover\:bg-royal-blue:hover {
+    background-color: hsl(224, 76%, 48%);
+  }
+  
+  .hover\:text-royal-blue:hover {
+    color: hsl(224, 76%, 48%);
   }
 }
