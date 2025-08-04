@@ -3,8 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
 
 jobs:
   deploy:
@@ -24,11 +22,44 @@ jobs:
       run: npm ci
       
     - name: Build static site
-      run: npm run build:static || vite build
+      run: |
+        export GITHUB_REPOSITORY="${{ github.repository }}"
+        npx vite build --config vite.config.github.ts
+      
+    - name: List build output
+      run: ls -la dist/public/
+        
+    - name: Create .nojekyll
+      run: touch dist/public/.nojekyll
+      
+    - name: Create 404.html for SPA
+      run: |
+        cat > dist/public/404.html << 'EOF'
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Sabrina Suzán Ahedo | Strategic Finance & Consulting</title>
+            <script type="text/javascript">
+              var pathSegmentsToKeep = 1;
+              var l = window.location;
+              l.replace(
+                l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+                l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+                l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+                (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+                l.hash
+              );
+            </script>
+          </head>
+          <body>
+          </body>
+        </html>
+        EOF
       
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist/public
