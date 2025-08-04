@@ -7,10 +7,23 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const openChatbot = () => {
-    // Trigger chatbot widget opening
+    // Try to open Chatbase directly first
+    if ((window as any).chatbase) {
+      try {
+        (window as any).chatbase('open');
+        console.log('Chatbase opened from navigation');
+        return;
+      } catch (error) {
+        console.error('Error opening chatbase from navigation:', error);
+      }
+    }
+    
+    // Fallback: trigger chatbot widget opening
     const chatbotButton = document.querySelector('#chatbot-widget button');
     if (chatbotButton) {
       (chatbotButton as HTMLElement).click();
+    } else {
+      console.warn('Chatbot button not found');
     }
   };
 

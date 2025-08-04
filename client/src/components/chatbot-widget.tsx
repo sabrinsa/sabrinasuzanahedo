@@ -53,8 +53,29 @@ export default function ChatbotWidget() {
             <button
               onClick={() => {
                 // Trigger Chatbase chatbot
+                console.log('Attempting to open chatbot...');
+                console.log('Chatbase available:', !!(window as any).chatbase);
+                
                 if ((window as any).chatbase) {
-                  (window as any).chatbase('open');
+                  try {
+                    (window as any).chatbase('open');
+                    console.log('Chatbase opened successfully');
+                  } catch (error) {
+                    console.error('Error opening chatbase:', error);
+                  }
+                } else {
+                  console.warn('Chatbase not loaded yet, trying to initialize...');
+                  // Try to manually trigger the script loading
+                  const script = document.createElement('script');
+                  script.src = 'https://www.chatbase.co/embed.min.js';
+                  script.id = 'jiZX-UCZE7g_FM4HECfcc';
+                  script.onload = () => {
+                    console.log('Chatbase script loaded, attempting to open...');
+                    if ((window as any).chatbase) {
+                      (window as any).chatbase('open');
+                    }
+                  };
+                  document.body.appendChild(script);
                 }
                 setIsOpen(false);
               }}
